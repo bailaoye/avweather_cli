@@ -1,5 +1,5 @@
 class AvweatherCli::CLI
-  def call
+  def run
     puts "Welcome to Aviation Weather CLI. Please note that this application only covers airports in the Greater Vancouver area. To exit the application at any time, input 'exit'"
     puts "Airports:"
     list_airports

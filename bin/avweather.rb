@@ -2,4 +2,4 @@
 
 require "./lib/avweather_cli"
 
-AvweatherCli::CLI.new.call
+AvweatherCli::CLI.new.run
