@@ -1,3 +1,5 @@
+require "nokogiri"
+
 class AvweatherCli::CLI
   def run
     puts "Welcome to Aviation Weather CLI. Please note that this application only covers airports in the Greater Vancouver area. To exit the application at any time, input 'exit'"
@@ -7,12 +9,7 @@ class AvweatherCli::CLI
   end
 
   def list_airports
-    puts "CYVR - Vancouver Intl"
-    puts "CYXX - Abbotsford"
-    puts "CYNJ - Langley Rgnl"
-    puts "CZBB - Boundary Bay"
-    puts "CYPK - Pitt Meadows"
-    puts "CYCW - Chilliwack"
+    @airports = AvweatherCli::Airports.list
   end
 
   def menu
