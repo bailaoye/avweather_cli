@@ -1,6 +1,3 @@
-require "avweather_cli/version"
-
-module AvweatherCli
-  class Error < StandardError; end
-  # Your code goes here...
-end
+#
+require_relative "./avweather_cli/version"
+require_relative "./avweather_cli/cli"
