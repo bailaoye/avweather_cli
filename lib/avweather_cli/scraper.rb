@@ -1,8 +1,8 @@
 class AvweatherCli::Scraper
 
-    def get_page(airport)
+    def get_page
         puts "scraping..."
-        Nokogiri::HTML(open("https://flightaware.com/resources/airport/#{airport}/weather"))
+        Nokogiri::HTML(open("https://flightaware.com/resources/airport/CYVR/weather"))
     end
     
     def scrape_wind
