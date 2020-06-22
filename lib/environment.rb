@@ -6,4 +6,5 @@ require "httparty"
 require_relative "./scraper"
 
 module AvweatherCli
+  #
 end
