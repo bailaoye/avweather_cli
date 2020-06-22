@@ -5,7 +5,6 @@ require "nokogiri"
 class AvweatherCli::CLI
   def run
     puts "Welcome to Aviation Weather CLI. Please note that this application only covers airports in the Greater Vancouver area. To exit the application at any time, input 'exit'"
-    puts "Airports:"
     list_airports
     menu
   end
@@ -20,8 +19,18 @@ class AvweatherCli::CLI
     while input != "exit"
       input = gets.strip.downcase
       case input
+      when "cyxx"
+
+      when "czbb"
+
+      when "cycw"
+
+      when "cynj"
+
+      when "cypk"
+
       when "cyvr"
-        puts "More info about CYVR:"
+        puts "More info about CYVR:"      
       end
     end
   end

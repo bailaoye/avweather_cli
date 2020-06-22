@@ -1,10 +1,11 @@
 class AvweatherCli::Airports
   def self.list
-    puts "CYVR - Vancouver Intl"
+    puts "List of airports (ICAO code - airport name): "
     puts "CYXX - Abbotsford"
-    puts "CYNJ - Langley Rgnl"
     puts "CZBB - Boundary Bay"
-    puts "CYPK - Pitt Meadows"
     puts "CYCW - Chilliwack"
+    puts "CYNJ - Langley Rgnl"
+    puts "CYPK - Pitt Meadows"
+    puts "CYVR - Vancouver Intl"
   end
 end
