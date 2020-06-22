@@ -30,7 +30,7 @@ class AvweatherCli::CLI
       when "cypk"
 
       when "cyvr"
-        puts "More info about CYVR:"      
+        puts "You have selected Vancouver International Airport."      
       end
     end
   end
