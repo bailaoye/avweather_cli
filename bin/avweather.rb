@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-require "./lib/avweather_cli"
+require_relative "../lib/cli"
 
 AvweatherCli::CLI.new.run
