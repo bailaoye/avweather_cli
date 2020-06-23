@@ -1,8 +1,8 @@
 # Aviation Weather CLI
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/avweather_cli`. To experiment with that code, run `bin/console` for an interactive prompt.
+Welcome to Aviation Weather CLI! Get concise and timely weather information for most major airports* across the world in a few simple keystrokes.
 
-TODO: Delete this and the text above, and describe your gem
+*Works best with airports in the U.S./Canada
 
 ## Installation
 
