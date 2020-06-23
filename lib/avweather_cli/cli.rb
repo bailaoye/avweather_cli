@@ -3,20 +3,21 @@ require "nokogiri"
 
 class AvweatherCli::CLI
   def run
-    puts "Welcome to Vancouver Aviation Weather CLI.\n\nTo exit the application at any time, input 'exit'"
+    puts "Welcome to Aviation Weather CLI.\n\nTo exit the application at any time, type 'exit' then press Enter."
     menu
   end
 
   def menu
-    puts "Current conditions at Vancouver International Airport: "
     puts ""
-    puts "Available METARs"
+    puts "Please enter a ICAO 4-letter identifier code for the airport you wish to query: "
+    puts ""
     input = nil
-    while input != "exit"
+    unless input == "exit"
       input = gets.strip.downcase
-      airport = AvweatherCli::Airport.new(input)
-      puts "You've selected #{airport.icao_code}."
+      puts "input is #{input}"
     end
 
+    info = AvweatherCli::Scraper.get_page(input)
+    puts info
   end
 end
