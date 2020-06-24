@@ -11,15 +11,15 @@ class AvweatherCli::CLI
     puts ""
     puts "Please enter a ICAO 4-letter identifier code for the airport you wish to query (i.e. KLAX for Los Angeles): "
     puts ""
-    icao_code = nil
-    unless icao_code == "exit"
-      icao_code = gets.strip.downcase
+    input = nil
+    unless input == "exit"
+      input = gets.strip.downcase
       puts ""
-      puts "Your selected airport is: #{icao_code.upcase}"
+      puts "Your selected airport is: #{input.upcase}"
       puts ""
     end
 
-    puts AvweatherCli::Airport.get_page(icao_code)
+    puts AvweatherCli::Airport.get_airport(input)
 
 
     puts "To display the above METAR in a translated format, please select from the following (type the number displayed below, then press Enter)"

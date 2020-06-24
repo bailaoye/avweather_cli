@@ -1,8 +1,6 @@
 # Aviation Weather CLI
 
-Welcome to Aviation Weather CLI! Get concise and timely weather information for most major airports* across the world in a few simple keystrokes.
-
-*Works best with airports in the U.S./Canada
+Welcome to Aviation Weather CLI! Get concise and timely weather information for major airports around the world.
 
 ## Installation
 
@@ -22,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-TBC
+Open the command line by executing bin/avweather in a shell and follow the instructions listed on the prompt.
 
 ## Development
 
