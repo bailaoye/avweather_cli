@@ -1,7 +1,14 @@
 class AvweatherCli::Airport
+  attr_accessor :name, :location, :city, :code
 
-  def self.get_airport(input)
-    @doc = Nokogiri::HTML(open("https://www.aviationweather.gov/adds/tafs/?station_ids=#{input}&std_trans=translated&submit_both=Get+TAFs+and+METARs"))
+  def initialize(name=nil, location=nil, city=nil, code=nil)
+    @name = name 
+    @location = location
+    @city = city
+    @code = code
+
+  def self.get_airport(code)
+    @doc = Nokogiri::HTML(open("https://www.aviationweather.gov/adds/tafs/?station_ids=#{@code}&std_trans=translated&submit_both=Get+TAFs+and+METARs"))
     puts "METAR raw data: #{@doc.css("tr, td")[6].text.strip}"
     puts "Airport and Time of Report: #{@doc.css("table td")[5].text.strip}"
   end
