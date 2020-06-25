@@ -7,7 +7,7 @@ class AvweatherCli::CLI
 
   def menu
     puts ""
-    puts "Please input the number of the airport (1-30) you would like to query."
+    puts "Please input the rank of the airport (1-30) you would like to query."
     puts "To exit the interface, type 'exit' then press Enter."
     puts ""
     input = nil
@@ -18,7 +18,7 @@ class AvweatherCli::CLI
     # provide input and create Airport instance from collection of Airports
     airport = AvweatherCli::Airport.find(input)
     puts "Your selected airport:"
-    puts "#{airport.index}. #{airport.name} (#{airport.code})"
+    puts "##{airport.index}. #{airport.name} (#{airport.code})"
     puts "#{airport.city}, #{airport.country}"
     puts airport.metar
 
