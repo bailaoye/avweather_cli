@@ -1,25 +1,45 @@
 class AvweatherCli::Airport
-  attr_accessor :index, :name, :code, :doc
+  attr_accessor :index, :name, :code
 
   @@all = []
 
-  def initialize(index, name, code)
+  def self.new_from_list(rows)
+    i = 0
+    while i < 240
+      self.new(
+        rows.css('td')[i].text.to_i, #index
+        rows.css('td')[i + 1].text.strip, #airport name
+        rows.css('td')[i + 4].text.partition("/").last.strip #code
+      )
+      i += 8
+    end
+  end
+
+  def initialize(index=nil, name=nil, code=nil)
     @index = index
     @name = name
     @code = code
     @@all << self
   end
 
+  def self.all
+    @@all
+  end
+
+  def self.index
+    @index
+  end
+
   def self.name
-    puts @name
+    @name
   end
 
   def self.code
-    puts @code
+    @code
   end
 
-  def self.all
-    puts @@all
+  def self.find(index)
+    self.all[index-1]
   end
 
   # grabs finer airport weather details from ADDS

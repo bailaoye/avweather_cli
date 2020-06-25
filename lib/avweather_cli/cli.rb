@@ -1,5 +1,6 @@
 class AvweatherCli::CLI
   def run
+    AvweatherCli::Scraper.new.make_airports
     puts "Welcome to Aviation Weather CLI.\nTo exit the application at any time, type 'exit' then press Enter."
     menu
   end
@@ -13,9 +14,9 @@ class AvweatherCli::CLI
       input = gets.strip.to_i
     end
 
-    AvweatherCli::Scraper.make_airports
-
-
+  airport = AvweatherCli::Airport.find(input)
+  puts airport.inspect
+  
 
 
 
