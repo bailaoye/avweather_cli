@@ -1,5 +1,5 @@
 class AvweatherCli::Airport
-  attr_accessor :index, :name, :city, :country, :code, :doc
+  attr_accessor :index, :name, :city, :country, :code, :metar_page
 
   @@all = []
 
@@ -26,7 +26,7 @@ class AvweatherCli::Airport
     @city = city
     @country = country
     @code = code
-    @doc = Nokogiri::HTML(open("https://www.aviationweather.gov/adds/tafs/?station_ids=#{code}&std_trans=translated&submit_both=Get+TAFs+and+METARs"))
+    @metar_page = Nokogiri::HTML(open("https://www.aviationweather.gov/adds/tafs/?station_ids=#{code}&std_trans=translated&submit_both=Get+TAFs+and+METARs"))
     @@all << self
   end
 
@@ -41,8 +41,8 @@ class AvweatherCli::Airport
     end
   end
 
-  def self.doc
-    @doc
+  def self.metar
+    @metar_page
   end
 
   def self.index
@@ -64,48 +64,48 @@ class AvweatherCli::Airport
   # the METAR is an abbreviated weather report used in aviation
   def metar
     puts ""
-    puts "Time of last report : #{@doc.css("table td")[5].text.partition("observed").last.strip}"
-    puts "  #{@doc.css("tr, td")[6].text.strip}"
+    puts "Time of last report : #{@metar_page.css("table td")[5].text.partition("observed").last.strip}"
+    puts "  #{@metar_page.css("tr, td")[6].text.strip}"
   end
 
   def temperature
     puts ""
-    puts "Temperature: #{@doc.css("table td")[7].text.strip}"
+    puts "Temperature: #{@metar_page.css("table td")[7].text.strip}"
   end
 
   def dewpoint
     puts ""
-    puts "Dewpoint: #{@doc.css("table td")[9].text.strip}"
+    puts "Dewpoint: #{@metar_page.css("table td")[9].text.strip}"
   end
 
   def altimeter
     puts ""
-    puts "Altimeter setting: #{@doc.css("table td")[11].text.strip}"
+    puts "Altimeter setting: #{@metar_page.css("table td")[11].text.strip}"
   end
 
   def winds
     puts ""
-    puts "Winds: #{@doc.css("table td")[13].text.strip}"
+    puts "Winds: #{@metar_page.css("table td")[13].text.strip}"
   end
 
   def visibility
     puts ""
-    puts "Visibility: #{@doc.css("table td")[15].text.strip}"
+    puts "Visibility: #{@metar_page.css("table td")[15].text.strip}"
   end
 
   def ceiling
     puts ""
-    puts "Ceiling: #{@doc.css("table td")[17].text.strip}"
+    puts "Ceiling: #{@metar_page.css("table td")[17].text.strip}"
   end
 
   def clouds
     puts ""
-    puts "Clouds: #{@doc.css("table td")[19].text}"
+    puts "Clouds: #{@metar_page.css("table td")[19].text}"
   end
 
   def remarks
     puts ""
-    puts "Remarks: #{@doc.css("table td")[21].text.strip}"
+    puts "Remarks: #{@metar_page.css("table td")[21].text.strip}"
   end
 
   def metar_all
