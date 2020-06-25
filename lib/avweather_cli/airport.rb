@@ -61,8 +61,7 @@ class AvweatherCli::Airport
     self.all[index-1]
   end
 
-  # the METAR is an abbreviated weather report used in aviation
-  def metar
+   def metar
     puts ""
     puts "Time of last report : #{@metar_page.css("table td")[5].text.partition("observed").last.strip}"
     puts "  #{@metar_page.css("tr, td")[6].text.strip}"
