@@ -34,6 +34,7 @@ class AvweatherCli::Airport
     @@all
   end
 
+  # this method retrieves the index number and name for each airport in @@all, and puts them to console
   def self.list(rows)
     self.all.each do |index, name|
       puts "#{@index}. #{@name}"
