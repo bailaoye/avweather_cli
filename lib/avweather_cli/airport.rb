@@ -1,10 +1,9 @@
-require 'nokogiri'
-require 'open-uri'
 class AvweatherCli::Airport
   attr_accessor :index, :name, :code, :doc
 
   @@all = []
 
+  # this method scrapes basic information (airport name, code) and assigns each airport an index
   def self.new_from_list(rows)
     i = 0
     while i < 240
@@ -16,7 +15,9 @@ class AvweatherCli::Airport
       i += 8
     end
   end
-
+  
+  # the initialize method assigns the information scraped earlier, and also scrapes another data source (NOAA)
+  # for detailed, live weather information, which can be displayed by the user
   def initialize(index, name, code)
     @index = index
     @name = name
@@ -49,8 +50,7 @@ class AvweatherCli::Airport
     self.all[index-1]
   end
 
-  # grabs airport weather details from ADDS  
-
+  # the METAR is an abbreviated weather report used in aviation
   def metar
     puts ""
     puts "Time of last report : #{@doc.css("table td")[5].text.partition("observed").last.strip}"

@@ -12,8 +12,9 @@ class AvweatherCli::CLI
     input = nil
     unless input == "exit"
       input = gets.strip.to_i
-    end
+  end
 
+    # provide input and create Airport instance from collection of Airports
     airport = AvweatherCli::Airport.find(input)
     puts "Your selected airport: #{airport.name} (#{airport.code})"
     puts airport.metar
@@ -28,6 +29,7 @@ class AvweatherCli::CLI
     puts "6. Ceiling"
     puts "7. Clouds"
     puts "8. Remarks"
+    puts ""
 
     input = nil
     unless input == "exit"
@@ -52,6 +54,7 @@ class AvweatherCli::CLI
       else
         puts "Invalid input, please try again."
       end
+
     end
   end
 end

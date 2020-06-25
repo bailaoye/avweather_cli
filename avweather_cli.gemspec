@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Jeff Bai"]
   spec.email         = ["jeff.bai996@gmail.com"]
 
-  spec.summary       = "A simple CLI tool for aviation weather and more."
+  spec.summary       = "A simple CLI tool for aviation weather."
   spec.homepage      = "https://github.com/bailaoye/avweather_cli"
   spec.license       = "MIT"
 
