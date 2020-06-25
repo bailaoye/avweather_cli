@@ -25,7 +25,7 @@ class AvweatherCli::CLI
 
 
     puts "To display the above METAR in a translated format, please select from the following: \n(to select, type the number displayed below, then press Enter)"
-    puts "\n1. Temperature\n2. Dewpoint\n3. Altimeter setting\n4. Winds\n5. Visibility\n6. Ceiling\n7. Clouds\n8. Remarks\n"
+    puts "\n1. Temperature\n2. Dewpoint\n3. Altimeter setting\n4. Winds\n5. Visibility\n6. Ceiling\n7. Clouds\n8. Remarks\n9. Translate all"
 
     input = nil
     unless input == "exit"
@@ -47,6 +47,8 @@ class AvweatherCli::CLI
         puts airport.clouds
       when 8
         puts airport.remarks
+      when 9
+        puts airport.metar_all
       end
     end
   end

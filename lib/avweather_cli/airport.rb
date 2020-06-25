@@ -108,4 +108,15 @@ class AvweatherCli::Airport
     puts "Remarks: #{@doc.css("table td")[21].text.strip}"
   end
 
+  def metar_all
+    temperature
+    dewpoint
+    altimeter
+    winds
+    visibility
+    ceiling
+    clouds
+    remarks
+  end
+
 end
