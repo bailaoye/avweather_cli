@@ -7,12 +7,13 @@ class AvweatherCli::CLI
 
   def menu
     puts ""
-    puts "Please type in the number of the airport you would like to query (1-30) then press Enter."
+    puts "Please input the number of the airport (1-30) you would like to query."
+    puts "To exit the interface, type 'exit' then press Enter."
     puts ""
     input = nil
     unless input == "exit"
       input = gets.strip.to_i
-  end
+    end
 
     # provide input and create Airport instance from collection of Airports
     airport = AvweatherCli::Airport.find(input)
@@ -54,7 +55,6 @@ class AvweatherCli::CLI
       else
         puts "Invalid input, please try again."
       end
-
     end
   end
 end
