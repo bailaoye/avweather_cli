@@ -8,11 +8,11 @@ class AvweatherCli::Airport
     i = 0
     while i < 240
       self.new(
-        rows.css('td')[i].text.to_i, #index
-        rows.css('td')[i + 1].text.strip, #airport name
-        rows.css('td')[i + 4].text.partition("/").last.strip #code
+        rows.css('td')[i].text.to_i, # index
+        rows.css('td')[i + 1].text.strip, # airport name
+        rows.css('td')[i + 4].text.partition("/").last.strip # code
       )
-      i += 8
+      i += 8 # advance to next row
     end
   end
   
