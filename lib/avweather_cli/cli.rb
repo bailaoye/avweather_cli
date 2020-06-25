@@ -1,6 +1,3 @@
-require "nokogiri"
-
-
 class AvweatherCli::CLI
   def run
     puts "Welcome to Aviation Weather CLI.\nTo exit the application at any time, type 'exit' then press Enter."
@@ -9,17 +6,17 @@ class AvweatherCli::CLI
 
   def menu
     puts ""
-    puts "Please enter a ICAO 4-letter identifier code for the airport you wish to query (i.e. KLAX for Los Angeles): "
+    puts "Please type in the number of the airport you would like to query (1-30) then press Enter."
     puts ""
     input = nil
     unless input == "exit"
-      input = gets.strip.downcase
-      puts ""
-      puts "Your selected airport is: #{input.upcase}"
-      puts ""
+      input = gets.strip.to_i
     end
 
-    puts AvweatherCli::Airport.get_airport(input)
+    AvweatherCli::Scraper.make_airports
+
+
+
 
 
     puts "To display the above METAR in a translated format, please select from the following (type the number displayed below, then press Enter)"
