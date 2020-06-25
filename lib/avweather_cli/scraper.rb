@@ -5,11 +5,13 @@ class AvweatherCli::Scraper
 
   def scrape_rows
     self.get_page.css("table tr")
-    
   end
 
   def make_airports  
     AvweatherCli::Airport.new_from_list(self.scrape_rows)
+  end
+
+  def get_metar_page
   end
 end
 

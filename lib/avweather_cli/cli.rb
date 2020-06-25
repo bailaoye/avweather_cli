@@ -1,7 +1,7 @@
 class AvweatherCli::CLI
   def run
     AvweatherCli::Scraper.new.make_airports
-    puts "Welcome to Aviation Weather CLI.\nTo exit the application at any time, type 'exit' then press Enter."
+    puts "Welcome to Aviation Weather CLI."
     menu
   end
 
@@ -14,10 +14,9 @@ class AvweatherCli::CLI
       input = gets.strip.to_i
     end
 
-  airport = AvweatherCli::Airport.find(input)
-  puts airport.inspect
-  
-
+    airport = AvweatherCli::Airport.find(input)
+    puts "Your selected airport: #{airport.name} (#{airport.code})"
+    puts airport.metar
 
 
     puts "To display the above METAR in a translated format, please select from the following (type the number displayed below, then press Enter)"
@@ -35,21 +34,21 @@ class AvweatherCli::CLI
       input = gets.strip.to_i
       case input
       when 1
-        puts AvweatherCli::Airport.temperature
+        puts airport.temperature
       when 2
-        puts AvweatherCli::Airport.dewpoint
+        puts airport.dewpoint
       when 3
-        puts AvweatherCli::Airport.altimeter
+        puts airport.altimeter
       when 4
-        puts AvweatherCli::Airport.winds
+        puts airport.winds
       when 5
-        puts AvweatherCli::Airport.visibility
+        puts airport.visibility
       when 6
-        puts AvweatherCli::Airport.ceiling
+        puts airport.ceiling
       when 7
-        puts AvweatherCli::Airport.clouds
+        puts airport.clouds
       when 8
-        puts AvweatherCli::Airport.remarks
+        puts airport.remarks
       else
         puts "Invalid input, please try again."
       end
