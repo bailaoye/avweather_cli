@@ -4,7 +4,7 @@ class AvweatherCli::Scraper
   end
 
   def scrape_rows
-    self.get_page.css("table tr")
+    self.get_page.css("tr")
   end
 
   def make_airports  

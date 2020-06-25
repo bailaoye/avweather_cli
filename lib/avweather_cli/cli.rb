@@ -17,7 +17,9 @@ class AvweatherCli::CLI
 
     # provide input and create Airport instance from collection of Airports
     airport = AvweatherCli::Airport.find(input)
-    puts "Your selected airport: #{airport.name} (#{airport.code})"
+    puts "Your selected airport:"
+    puts "#{airport.index}. #{airport.name} (#{airport.code})"
+    puts "#{airport.city}, #{airport.country}"
     puts airport.metar
 
 

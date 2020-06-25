@@ -1,5 +1,5 @@
 class AvweatherCli::Airport
-  attr_accessor :index, :name, :code, :doc
+  attr_accessor :index, :name, :city, :country, :code, :doc
 
   @@all = []
 
@@ -10,17 +10,21 @@ class AvweatherCli::Airport
       self.new(
         rows.css('td')[i].text.to_i, # index
         rows.css('td')[i + 1].text.strip, # airport name
+        rows.css('td')[i + 2].text.strip, # airport city
+        rows.css('td')[i + 3].text.strip, # airport country
         rows.css('td')[i + 4].text.partition("/").last.strip # code
       )
       i += 8 # advance to next row
     end
   end
-  
+
   # the initialize method assigns the information scraped earlier, and also scrapes another data source (NOAA)
   # for detailed, live weather information, which can be displayed by the user
-  def initialize(index, name, code)
+  def initialize(index, name, city, country, code)
     @index = index
     @name = name
+    @city = city
+    @country = country
     @code = code
     @doc = Nokogiri::HTML(open("https://www.aviationweather.gov/adds/tafs/?station_ids=#{code}&std_trans=translated&submit_both=Get+TAFs+and+METARs"))
     @@all << self
