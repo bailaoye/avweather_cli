@@ -1,21 +1,22 @@
 class AvweatherCli::CLI
   def run
     AvweatherCli::Scraper.new.make_airports
-    puts "Welcome to Aviation Weather CLI."
+    puts "\nWelcome to Aviation Weather CLI.\n"
+    puts "\nList of top 30 airports by passenger turnover:\n"
+    AvweatherCli::Airport.all.each do |airport|
+      puts "#{airport.index}. #{airport.name}"
+    end
     menu
   end
 
-  def menu
-    puts ""
-    puts "Please input the rank of the airport (1-30) you would like to query."
-    puts "To exit the interface, type 'exit' then press Enter."
-    puts ""
+  def menu    
+    puts "\nPlease input the rank of the airport you would like to query.\n"
     input = nil
     unless input == "exit"
       input = gets.strip.to_i
     end
 
-    # provide input and create Airport instance from collection of Airports
+    # provide input and get Airport instance at index=input from collection of Airports
     airport = AvweatherCli::Airport.find(input)
     puts "Your selected airport:"
     puts "##{airport.index}. #{airport.name} (#{airport.code})"

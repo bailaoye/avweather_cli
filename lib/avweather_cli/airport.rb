@@ -34,6 +34,12 @@ class AvweatherCli::Airport
     @@all
   end
 
+  def self.list(rows)
+    self.all.each do |index, name|
+      puts "#{@index}. #{@name}"
+    end
+  end
+
   def self.doc
     @doc
   end
