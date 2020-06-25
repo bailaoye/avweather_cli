@@ -10,8 +10,5 @@ class AvweatherCli::Scraper
   def make_airports  
     AvweatherCli::Airport.new_from_list(self.scrape_rows)
   end
-
-  def get_metar_page
-  end
 end
 
