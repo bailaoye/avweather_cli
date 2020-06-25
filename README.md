@@ -2,6 +2,8 @@
 
 Welcome to Aviation Weather CLI! Get concise and timely weather information for major airports around the world.
 
+Source page for airports : https://www.world-airport-codes.com/world-top-30-airports.html
+
 ## Installation
 
 Add this line to your application's Gemfile:
