@@ -18,19 +18,13 @@ And then execute:
 
     $ bundle
 
-Or install it yourself as:
+Or to unpack gem dependencies for running on console:
 
-    $ gem install avweather_cli
+    $ bundle install
 
 ## Usage
 
 Open the command line by executing bin/avweather in a shell and follow the instructions listed on the prompt.
-
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To denote a new version, update the version number in `lib/avweather_cli/version.rb`.
 
 ## Contributing
 
@@ -42,6 +36,5 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Feature To-do
 
-- Iterating with .each
-- List views
-- Search for any airport code (...maybe))
+- Search for any airport code 
+- Refactoring Airport.new_from_list to use a better iterating method
