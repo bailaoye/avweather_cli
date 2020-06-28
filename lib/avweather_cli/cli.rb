@@ -1,8 +1,14 @@
 class AvweatherCli::CLI
   def run
     AvweatherCli::Scraper.new.make_airports
-    puts "\nWelcome to Aviation Weather CLI.\n"
-    puts "\nList of the world's top 30 airports by passenger turnover: \n"
+    puts '
+                 ___    __                ___      ___       ___  __      __         
+ /\  \  / |  /\   |  | /  \ |\ |    |  | |__   /\   |  |__| |__  |__)    /  ` |    | 
+/~~\  \/  | /~~\  |  | \__/ | \|    |/\| |___ /~~\  |  |  | |___ |  \    \__, |___ | 
+'
+    puts "\nby J. Bai\n"
+    puts "\nList of the world's top 30 airports by passenger turnover:"
+    puts ""
     AvweatherCli::Airport.all.each do |airport|
       puts "#{airport.index}. #{airport.name}"
     end
